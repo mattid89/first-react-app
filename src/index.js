@@ -47,7 +47,8 @@ import './index.css';
     renderSquare(arrayPos) {
       return <Square
           value={ this.state.squares[arrayPos] }
-          onClick={ () => this.handleClick(arrayPos) } />;
+          onClick={ () => this.handleClick(arrayPos) }
+      />;
     }
   
     render() {
@@ -82,6 +83,14 @@ import './index.css';
   }
   
   class Game extends React.Component {
+      constructor(props) {
+          super(props);
+          this.state = {
+              history: [{
+                  squares: Array(9).fill(null),
+              }]
+          }
+      }
     render() {
       return (
         <div className="game">
